@@ -1,5 +1,9 @@
 from urllib import request
 import json
+from ini.IniParser import IniParser
+
+iniParser = IniParser("/ini/config.ini")
+vote_url=iniParser.vote_url
 
 def gorequest(request):
     global count
@@ -34,7 +38,7 @@ count=0
 
 for proxy in result:
     proxy_host = proxy  # host and port of your proxy
-    url = 'http://www.lgbzj.com/plugin.php?id=jw_shgame&mod=praise&works_id=69'
+    url = vote_url
 
     req = request.Request(url)
     req.set_proxy(proxy_host, 'http')
