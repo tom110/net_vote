@@ -4,6 +4,7 @@ import multiprocessing
 import os, time
 from urllib import request
 import json
+import re
 from ini.IniParser import IniParser
 
 iniParser = IniParser("/ini/config.ini")
@@ -11,6 +12,7 @@ vote_url=iniParser.vote_url
 vote_getproxyurl=iniParser.vote_getproxyurl
 vote_number=int(iniParser.vote_number)
 
+# 单条返回函数
 def getproxy():
     url=vote_getproxyurl
     req = request.Request(url)
@@ -21,6 +23,20 @@ def getproxy():
         return response.read().decode("utf-8")
     except:
         print( "proxy获取失败")
+        return ""
+
+# 免费http://p.ashtwo.cn返回函数
+def getfreeproxy():
+    url="http://p.ashtwo.cn"
+    req = request.Request(url)
+    req.add_header("User-Agent",
+                   "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3080.5 Safari/537.36")
+    try:
+        response = request.urlopen(req, timeout=10)
+        reResult= re.findall(r'(?:(?:[0,1]?\d?\d|2[0-4]\d|25[0-5])\.){3}(?:[0,1]?\d?\d|2[0-4]\d|25[0-5]):\d{0,5}',response.read().decode("utf-8"))
+        return reResult[0]
+    except:
+        print("proxy获取失败")
         return ""
 
 # 递归访问投票
@@ -69,7 +85,7 @@ def write(q):
             time.sleep(5)
             print('队列过长，代理线程池停止5秒')
         else:
-            proxy=getproxy()
+            proxy=getfreeproxy()
             print('代理地址%s写入代理池' % proxy)
             q.put(proxy)
             time.sleep(0.5)
