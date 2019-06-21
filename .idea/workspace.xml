@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20a08b2c-2e50-4a59-bcab-22404a322764" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ini/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ini/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mutiprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/mutiprocess.py" afterDir="false" />
-    </list>
+    <list default="true" id="20a08b2c-2e50-4a59-bcab-22404a322764" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +26,10 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="README" value="1" />
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="ini" value="3" />
           <entry key="manifest" value="1" />
+          <entry key="md" value="1" />
           <entry key="py" value="13" />
           <entry key="txt" value="6" />
         </counts>
@@ -40,15 +37,16 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Ini" value="3" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="10" />
           <entry key="Python" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="README" value="1" />
-          <entry key="gitignore" value="4" />
-          <entry key="ini" value="213" />
+          <entry key="gitignore" value="15" />
+          <entry key="ini" value="214" />
           <entry key="md" value="145" />
           <entry key="py" value="2098" />
           <entry key="txt" value="12" />
@@ -56,9 +54,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ini" value="213" />
+          <entry key="Ini" value="214" />
           <entry key="Markdown" value="145" />
-          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="PLAIN_TEXT" value="28" />
           <entry key="Python" value="2098" />
         </counts>
       </usages-collector>
@@ -66,28 +64,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mutiprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+            <state>
+              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
               <folding>
                 <element signature="e#24#66#0" expanded="true" />
+                <element signature="e#374#755#0" />
+                <element signature="e#607#697#0" />
+                <element signature="e#718#755#0" />
                 <element signature="e#808#1319#0" />
+                <element signature="e#1045#1262#0" />
+                <element signature="e#1283#1319#0" />
                 <element signature="e#1368#2007#0" />
+                <element signature="e#1391#1656#0" />
+                <element signature="e#1434#1492#0" />
+                <element signature="e#1519#1656#0" />
+                <element signature="e#1677#1722#0" />
+                <element signature="e#1749#1798#0" />
+                <element signature="e#1824#1954#0" />
+                <element signature="e#1973#2007#0" />
+                <element signature="e#2047#2325#0" />
                 <element signature="e#2359#2669#0" />
+                <element signature="e#2418#2669#0" />
+                <element signature="e#2463#2512#0" />
+                <element signature="e#2539#2669#0" />
                 <element signature="e#2710#2826#0" />
+                <element signature="e#2779#2826#0" />
                 <element signature="e#2854#3352#0" />
+                <element signature="e#2907#3097#0" />
+                <element signature="e#2994#3045#0" />
+                <element signature="e#3135#3307#0" />
+                <element signature="e#3203#3255#0" />
+                <element signature="e#3552#3611#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ini/config.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+              <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -106,8 +135,8 @@
       <find>1.198.73.115</find>
       <find>117.131.235.198</find>
       <find>14.20.235.77</find>
-      <find>getproxy</find>
       <find>gorequest</find>
+      <find>getproxy</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,13 +147,13 @@
       <list>
         <option value="$PROJECT_DIR$/proxytest.txt" />
         <option value="$PROJECT_DIR$/proxys.txt" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/ini/IniParser.py" />
-        <option value="$PROJECT_DIR$/ini/config.ini" />
         <option value="$PROJECT_DIR$/mutiprocess.py" />
+        <option value="$PROJECT_DIR$/ini/config.ini" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -152,11 +181,6 @@
             <path>
               <item name="pop" type="b2602c69:ProjectViewProjectNode" />
               <item name="pop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pop" type="462c0819:PsiDirectoryNode" />
-              <item name="ini" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -267,9 +291,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22150365" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22150365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -406,6 +429,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ini/IniParser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/mutiprocess/mutiprocess.exe.manifest">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -421,43 +457,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4" selection-start-column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ini/IniParser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/mutiprocess/mutiprocess.exe.manifest">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mutiprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
-          <folding>
-            <element signature="e#24#66#0" expanded="true" />
-            <element signature="e#808#1319#0" />
-            <element signature="e#1368#2007#0" />
-            <element signature="e#2359#2669#0" />
-            <element signature="e#2710#2826#0" />
-            <element signature="e#2854#3352#0" />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ini/config.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mutiprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+          <folding>
+            <element signature="e#24#66#0" expanded="true" />
+            <element signature="e#374#755#0" />
+            <element signature="e#607#697#0" />
+            <element signature="e#718#755#0" />
+            <element signature="e#808#1319#0" />
+            <element signature="e#1045#1262#0" />
+            <element signature="e#1283#1319#0" />
+            <element signature="e#1368#2007#0" />
+            <element signature="e#1391#1656#0" />
+            <element signature="e#1434#1492#0" />
+            <element signature="e#1519#1656#0" />
+            <element signature="e#1677#1722#0" />
+            <element signature="e#1749#1798#0" />
+            <element signature="e#1824#1954#0" />
+            <element signature="e#1973#2007#0" />
+            <element signature="e#2047#2325#0" />
+            <element signature="e#2359#2669#0" />
+            <element signature="e#2418#2669#0" />
+            <element signature="e#2463#2512#0" />
+            <element signature="e#2539#2669#0" />
+            <element signature="e#2710#2826#0" />
+            <element signature="e#2779#2826#0" />
+            <element signature="e#2854#3352#0" />
+            <element signature="e#2907#3097#0" />
+            <element signature="e#2994#3045#0" />
+            <element signature="e#3135#3307#0" />
+            <element signature="e#3203#3255#0" />
+            <element signature="e#3552#3611#0" />
+          </folding>
         </state>
       </provider>
     </entry>
