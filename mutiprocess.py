@@ -52,18 +52,18 @@ def gorequest(req,proxy,i,count):
             res=data["result"]
     except:
         print("进程%d:%s失效" % (i,proxy))
-        pass
+        return
 
     if res == 0:
         print("进程%d,%s达到投票上限" % (i,proxy))
-        pass
+        return
     elif res==1:
         count.value = count.value + 1
         print("进程%d号，代理%s成功投票,累记投票%d张" % (i,proxy,count.value))
         gorequest(req,proxy,i,count)
     else:
         print(proxy+"未知错误")
-        pass
+        return
 
 # 处理消费事件
 def exec(proxy,i,count):
@@ -81,12 +81,13 @@ def exec(proxy,i,count):
 def write(q):
     print('进程%s开始写入代理池' % os.getpid())
     while True:
-        if q.qsize()>10:
+        len=q.qsize()
+        if len>10:
             time.sleep(5)
             print('队列过长，代理线程池停止5秒')
         else:
             proxy=getfreeproxy()
-            print('代理地址%s写入代理池' % proxy)
+            print('代理地址%s写入代理池,当前线程池长度%d' % (proxy,len))
             q.put(proxy)
             time.sleep(0.5)
 
@@ -124,8 +125,9 @@ if __name__=='__main__':
     count=multiprocessing.Value("d",0)
     # 父进程创建Queue，并传给各个子进程：
     q = Queue()
-    pw = Process(target=write, args=(q,))
-    pw.start()
+    for i in range(2):
+        pw = Process(target=write, args=(q,))
+        pw.start()
 
     for i in range(11):
         pr=Process(target=read,args=(q,i,count))
