@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from multiprocessing import Process, Queue
 import multiprocessing
-import os, time
+import os, time,sys,getopt
 from urllib import request
 import json
 import re
@@ -27,7 +27,7 @@ def getproxy():
 
 # 免费http://p.ashtwo.cn返回函数
 def getfreeproxy():
-    url="http://p.ashtwo.cn"
+    url=iniParser.vote_p_ashtwo_cn
     req = request.Request(url)
     req.add_header("User-Agent",
                    "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3080.5 Safari/537.36")
@@ -73,13 +73,13 @@ def exec(proxy,i,count):
     req.set_proxy(proxy, 'http')
 
     req.add_header("User-Agent",
-                   "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3080.5 Safari/537.36")
+                   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
 
     gorequest(req,proxy,i,count)
 
 # 写数据进程执行的代码:
-def write(q):
-    print('进程%s开始写入代理池' % os.getpid())
+def write_freeproxy(q):
+    print('免费代理进程%s开始写入代理池' % os.getpid())
     while True:
         len=q.qsize()
         if len>10:
@@ -87,9 +87,35 @@ def write(q):
             print('队列过长，代理线程池停止5秒')
         else:
             proxy=getfreeproxy()
-            print('代理地址%s写入代理池,当前线程池长度%d' % (proxy,len))
+            print('免费代理地址%s写入代理池,当前线程池长度%d' % (proxy,len))
             q.put(proxy)
             time.sleep(0.5)
+
+def write_daxiang(q):
+    print('大象代理写入进程%s开始写入代理池' % os.getpid())
+    while True:
+        len = q.qsize()
+        if len > 10:
+            time.sleep(5)
+            print('队列过长，代理线程池停止5秒')
+        else:
+            proxy = getproxy()
+            print('大象代理地址%s写入代理池,当前线程池长度%d' % (proxy, len))
+            q.put(proxy)
+            time.sleep(0.5)
+
+
+def write_proxys(q):
+    print('代理文件写入进程%s开始写入代理池' % os.getpid())
+    result=[]
+    with open('proxys.txt', 'r') as f:
+        for line in f:
+            result.append(line.strip('\n'))
+    for proxy in result:
+        q.put(proxy)
+        print('文件代理地址%s写入代理池' % proxy)
+
+
 
 # 读数据进程执行的代码:
 def read(q,i,count):
@@ -121,17 +147,61 @@ def kill(pid):
         print('Undefined os.name')
 
 
-if __name__=='__main__':
-    count=multiprocessing.Value("d",0)
+def main(argv):
+    write_file_proxys_bool=False
+    write_free_proxys_number=0
+    write_daxiang_proxys_number=0
+    read_proxys_number=0
+    try:
+        opts, args = getopt.getopt(argv, "hf:e:d:r:", ["isusefileproxy=", "freeproxynumber=","daxiangproxynumber","readproxynumber"])
+    except getopt.GetoptError:
+        print('mutiprocess.py -f <isusefileproxy>[False,True] -e <freeproxynumber>[int] -d <daxiangproxynumber>[int] -r <readproxynumber>[int]')
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print(
+                'mutiprocess.py -f <isusefileproxy>[False,True] -e <freeproxynumber>[int] -d <daxiangproxynumber>[int] -r <readproxynumber>[int]')
+            sys.exit()
+        elif opt in ("-f", "--isusefileproxy"):
+            write_file_proxys_bool = arg
+        elif opt in ("-e", "--freeproxynumber"):
+            write_free_proxys_number = arg
+        elif opt in ("-d", "--daxiangproxynumber"):
+            write_daxiang_proxys_number = arg
+        elif opt in ("-r", "--readproxynumber"):
+            read_proxys_number = arg
+    print('使用文件袋里：', write_file_proxys_bool)
+    print('免费代理进程数：', write_free_proxys_number)
+    print('大象类代理进程数：', write_daxiang_proxys_number)
+    print('读取代理进程数：', read_proxys_number)
+
+
+    count = multiprocessing.Value("d", 0)
     # 父进程创建Queue，并传给各个子进程：
     q = Queue()
-    for i in range(2):
-        pw = Process(target=write, args=(q,))
+
+    if write_file_proxys_bool:
+        # 开启一条文件写入进程
+        for i in range(1):
+            pw = Process(target=write_proxys, args=(q,))
+            pw.start()
+
+    # 开启三个免费写入进程
+    for i in range(int(write_free_proxys_number)):
+        pw = Process(target=write_freeproxy, args=(q,))
         pw.start()
 
-    for i in range(11):
-        pr=Process(target=read,args=(q,i,count))
+    # 开启一个单条大象代理写入进程
+    for i in range(int(write_daxiang_proxys_number)):
+        pw=Process(target=write_daxiang,args=(q,))
+        pw.start()
+
+    for i in range(int(read_proxys_number)):
+        pr = Process(target=read, args=(q, i, count))
         pr.start()
 
     pw.join()
     pw.close()
+
+if __name__=='__main__':
+    main(sys.argv[1:])
