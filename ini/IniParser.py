@@ -10,6 +10,7 @@ class IniParser:
             self.vote_getproxyurl = cf.get('vote','vote_getproxyurl')
             self.vote_number = cf.get('vote', 'vote_number')
             self.vote_p_ashtwo_cn = cf.get('vote', 'vote_p_ashtwo_cn')
+            self.pubproxy_com_api_proxy = cf.get('vote', 'pubproxy_com_api_proxy')
         except configparser.NoOptionError:
             print('不能读取配置文件！')
             os.exit(1)
